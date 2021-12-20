@@ -6,12 +6,17 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.bundle.js'
     },
-    mode : "development",
+    mode: "development",
     devServer: {
         static: {
             directory: path.join(__dirname, 'dist'),
-          },
-          compress: true,
-          port: 8080,
+        },
+        compress: true,
+        port: 8080,
+    },
+    resolve: {
+        alias: {
+            'vue': 'vue/dist/vue.js'
+        }
     },
 };

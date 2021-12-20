@@ -1,7 +1,9 @@
-import bar from './bar.js';
+import './bar.js';
+import test from './test.js';
 import _ from 'lodash';
+import Vue from 'vue';
 
-bar();
+test();
 
 function component() {
     const element = document.createElement('div');
@@ -14,3 +16,5 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+new Vue({ el: '#components-demo' })
