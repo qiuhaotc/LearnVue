@@ -43,7 +43,7 @@ module.exports = {
             // 配置title属性
             title: "Vue Pages",
             // Template
-            template: "index.html",
+            template: "./WebApp/index.html",
             // js插入的位置，true/'head'/'body'/false
             inject: 'body',
             // favicon position
