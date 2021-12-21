@@ -4,7 +4,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./WebApp/index.js",
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.bundle.[contenthash:8].js'
@@ -18,6 +18,7 @@ module.exports = {
         port: 8080,
     },
     resolve: {
+        extensions: ['*', '.js', '.vue', '.wasm', '.json'],
         alias: {
             'vue': 'vue/dist/vue.js'
         },
@@ -46,7 +47,7 @@ module.exports = {
             // js插入的位置，true/'head'/'body'/false
             inject: 'body',
             // favicon position
-            favicon: './src/images/favicon.ico',
+            favicon: './WebApp/images/favicon.ico',
         }),
         // Vue page file load plugin
         new VueLoaderPlugin(),
