@@ -1,9 +1,18 @@
  <template>
-  <el-table :data="tableData" style="width: 100%">
-    <el-table-column prop="date" label="日期" width="180"> </el-table-column>
-    <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
-    <el-table-column prop="address" label="地址"> </el-table-column>
-  </el-table>
+  <div>
+    <el-table :data="tableData" style="width: 100%">
+      <el-table-column prop="date" label="日期" width="180"> </el-table-column>
+      <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
+      <el-table-column prop="address" label="地址"> </el-table-column>
+    </el-table>
+    <el-pagination
+      :page-sizes="[100, 200, 300, 400]"
+      :page-size="100"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="1000"
+    >
+    </el-pagination>
+  </div>
 </template>
 
   <script>

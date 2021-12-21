@@ -1,12 +1,13 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { VueLoaderPlugin } = require('vue-loader')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.bundle.js'
+        filename: 'main.bundle.[contenthash:8].js'
     },
     mode: "development",
     devServer: {
@@ -38,10 +39,18 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            //配置title属性
-            title: "Auto Generated",
-            template: "index.html"
+            // 配置title属性
+            title: "Vue Pages",
+            // Template
+            template: "index.html",
+            // js插入的位置，true/'head'/'body'/false
+            inject: 'body',
+            // favicon position
+            favicon: './src/images/favicon.ico',
         }),
+        // Vue page file load plugin
         new VueLoaderPlugin(),
+        // 清空输出目录
+        new CleanWebpackPlugin(),
     ]
 };
