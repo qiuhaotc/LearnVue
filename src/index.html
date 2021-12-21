@@ -5,9 +5,10 @@
   </head>
   <body>
     <div id="components-demo">
-      <button-counter></button-counter>
-      <button-counter></button-counter>
-      <button-counter></button-counter>
+      <h1>Total Clicks: {{startNumber}}</h1>
+      <button-counter v-model="startNumber" @buttonclick="clickbutton"></button-counter>
+      <button-counter v-model="startNumber" @buttonclick="clickbutton"></button-counter>
+      <button value="123" @click="startNumber = 0">To Zero</button>
     </div>
     <script src="./main.bundle.js"></script>
   </body>

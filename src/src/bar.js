@@ -1,10 +1,18 @@
 import Vue from 'vue';
 
 Vue.component('button-counter', {
+    props: {
+        value: Number
+    },
     data: function () {
         return {
-            count: 0
         }
     },
-    template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    methods: {
+        changeData() {
+            this.$emit('buttonclick', 1)
+            console.log("changeData called")
+        }
+    },
+    template: '<button @click="changeData">You clicked me {{ value }} times.</button>'
 })

@@ -17,4 +17,15 @@ function component() {
 
 document.body.appendChild(component());
 
-new Vue({ el: '#components-demo' })
+new Vue({
+    el: '#components-demo',
+    data: {
+        startNumber: 0
+    },
+    methods: {
+        clickbutton(params) {
+            this.startNumber += params;
+            console.log("startNumber: " + this.startNumber)
+        }
+    }
+})
