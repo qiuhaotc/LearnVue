@@ -1,21 +1,28 @@
 <template>
   <el-container>
-    <el-header>Header</el-header>
+    <el-header>
+      <Header></Header>
+    </el-header>
     <el-container>
       <el-aside>
-        <buttons></buttons>
+        <Navi></Navi>
       </el-aside>
       <el-main>
         <router-view></router-view>
       </el-main>
     </el-container>
-    <el-footer>Footer</el-footer>
+    <el-footer>
+      <Footer></Footer>
+    </el-footer>
   </el-container>
 </template>
 
 <script>
 import Grid from "./component/Grid.vue";
 import Buttons from "./component/Buttons.vue";
+import Header from "./component/Header.vue";
+import Navi from "./component/Navi.vue";
+import Footer from "./component/Footer.vue";
 import "./css/main.css";
 
 export default {
@@ -27,6 +34,9 @@ export default {
   components: {
     Grid,
     Buttons,
+    Header,
+    Navi,
+    Footer,
   },
 };
 </script>
