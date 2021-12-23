@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <el-row>
-      <buttons></buttons>
-    </el-row>
-    <el-row>
-      <Grid></Grid>
-    </el-row>
-    <el-row>
-      <router-view></router-view>
-    </el-row>
-  </div>
+  <el-container>
+    <el-header>Header</el-header>
+    <el-container>
+      <el-aside>
+        <buttons></buttons>
+      </el-aside>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
+    <el-footer>Footer</el-footer>
+  </el-container>
 </template>
 
 <script>
