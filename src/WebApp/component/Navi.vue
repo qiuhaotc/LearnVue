@@ -6,7 +6,7 @@
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
-        router="true"
+        router
       >
         <el-submenu index="1">
           <template slot="title">
@@ -31,6 +31,7 @@
 
 <script>
 import Page1 from "../component/Page1";
+import LearnVueStart from "../component/LearnVueStart";
 import VueRouter from "vue-router";
 
 // 0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)
@@ -51,6 +52,7 @@ const routes = [
   { path: "/foo/:id", component: Foo, Name: "Foo" },
   { path: "/bar", component: Bar, Name: "Bar" },
   { path: "/Page1/:id", component: Page1, Name: "Page1" },
+  { path: "/LearnVueStart", component: LearnVueStart, Name: "LearnVueStart" },
 ];
 
 // 3. 创建 router 实例，然后传 `routes` 配置
@@ -64,7 +66,7 @@ export default {
   data: function () {
     return {
       routes: routes,
-      defaultOpen: routes[0].path,
+      defaultOpen: this.$router.currentRoute.path,
     };
   },
   methods: {

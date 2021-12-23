@@ -5,7 +5,7 @@
       class="el-menu-demo"
       mode="horizontal"
       @select="handleSelect"
-      router="true"
+      :router="true"
     >
       <el-menu-item index="/">Home</el-menu-item>
       <el-submenu index="2">
