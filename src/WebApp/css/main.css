@@ -7,3 +7,9 @@ html, body, #app, .el-container {
 	margin: 0px;
 	height: 100%;
 }
+
+.alignToCenter {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
