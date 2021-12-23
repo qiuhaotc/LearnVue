@@ -15,6 +15,7 @@
 <script>
 import Grid from "./component/Grid.vue";
 import Buttons from "./component/Buttons.vue";
+import "./css/main.css";
 
 export default {
   name: "App",
@@ -28,9 +29,3 @@ export default {
   },
 };
 </script>
-
-<style>
-h1 {
-  color: #0094ff;
-}
-</style>
