@@ -24,6 +24,10 @@ import Header from "./component/Header.vue";
 import Navi from "./component/Navi.vue";
 import Footer from "./component/Footer.vue";
 import "./css/main.css";
+import MyClass from "./scripts/demo";
+
+var aaa = new MyClass();
+aaa.SayHi();
 
 export default {
   name: "App",
