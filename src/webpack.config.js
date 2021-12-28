@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { VueLoaderPlugin } = require('vue-loader')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = (env) => {
 
@@ -47,6 +48,13 @@ module.exports = (env) => {
                     exclude: /node_modules/,
                 },
             ]
+        },
+        optimization: {
+            minimizer: [
+                // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+                `...`,
+                new CssMinimizerPlugin(),
+            ],
         },
         plugins: [
             new HtmlWebpackPlugin({
