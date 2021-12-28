@@ -2,6 +2,7 @@ const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { VueLoaderPlugin } = require('vue-loader')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = (env) => {
 
@@ -34,7 +35,7 @@ module.exports = (env) => {
                     // css-loader只负责将css文件进行加载
                     // style-loader负责将样式添加到DOM中，要放在css-loader的前面
                     // webpack在使用多个loader时，是按照从右向左（或者说从下到上）的顺序使用
-                    use: ['style-loader', 'css-loader']
+                    use: [environment !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader']
                 },
                 {
                     test: /\.vue$/,
@@ -57,11 +58,15 @@ module.exports = (env) => {
                 inject: 'body',
                 // favicon position
                 favicon: './WebApp/images/favicon.ico',
+                minify: false,
             }),
             // Vue page file load plugin
             new VueLoaderPlugin(),
             // 清空输出目录
             new CleanWebpackPlugin(),
+            new MiniCssExtractPlugin({
+                filename: "style.[contenthash:8].css",
+            }),
         ]
     }
 };
