@@ -7,16 +7,13 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = (env) => {
 
-    const isProuction = env.production === 'production';
-    const environment = isProuction ? 'production' : 'development'
-
     return {
         entry: "./WebApp/index.js",
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'main.bundle.[contenthash:8].js'
         },
-        mode: environment,
+        mode: env.production ? 'production' : 'development',
         devServer: {
             static: {
                 directory: path.join(__dirname, 'dist'),
@@ -37,7 +34,7 @@ module.exports = (env) => {
                     // css-loader只负责将css文件进行加载
                     // style-loader负责将样式添加到DOM中，要放在css-loader的前面
                     // webpack在使用多个loader时，是按照从右向左（或者说从下到上）的顺序使用
-                    use: [isProuction ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader']
+                    use: [env.production ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader']
                 },
                 {
                     test: /\.vue$/,
@@ -72,7 +69,7 @@ module.exports = (env) => {
             // Vue page file load plugin
             new VueLoaderPlugin(),
             // 清空输出目录
-            ...(isProuction ? [new CleanWebpackPlugin()] : []),
+            ...(env.production ? [new CleanWebpackPlugin()] : []),
             new MiniCssExtractPlugin({
                 filename: "style.[contenthash:8].css",
             }),
