@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "element-ui": "^2.15.6",
     "lodash": "^4.17.21",
     "vue": "^2.6.14",

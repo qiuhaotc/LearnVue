@@ -10,7 +10,7 @@ import routerInfo from './component/Navi'
 Vue.use(ElementUI);
 Vue.use(VueRouter)
 
-var vm = new Vue({
+new Vue({
     el: '#app',
     template: '<App/>',
     components: { App },
