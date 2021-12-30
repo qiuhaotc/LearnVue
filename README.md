@@ -1,4 +1,6 @@
-# LearnVue
+## Welcome
+
+### About this project
 
 Learn how to use Vue and webpack
 
