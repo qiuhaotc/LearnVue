@@ -32,14 +32,14 @@
 <script>
 import Page1 from "../component/Page1";
 import LearnVueStart from "../component/LearnVueStart";
+import LearnStep2 from "../component/LearnStep2";
+import LearnComponent from "../component/LearnComponent";
 import VueRouter from "vue-router";
 
 // 0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)
 // 1. 定义 (路由) 组件。
 // 可以从其他文件 import 进来
 const Home = { template: "<div>home</div>" };
-const Foo = { template: "<div>foo</div>" };
-const Bar = { template: "<div>bar</div>" };
 
 // 2. 定义路由
 // 每个路由应该映射一个组件。 其中"component" 可以是
@@ -49,10 +49,14 @@ const Bar = { template: "<div>bar</div>" };
 const routes = [
   // 动态路由 :id
   { path: "/", component: Home, Name: "Home" },
-  { path: "/foo/:id", component: Foo, Name: "Foo" },
-  { path: "/bar", component: Bar, Name: "Bar" },
-  { path: "/Page1/:id", component: Page1, Name: "Page1" },
   { path: "/LearnVueStart", component: LearnVueStart, Name: "LearnVueStart" },
+  { path: "/LearnStep2", component: LearnStep2, Name: "LearnStep2" },
+  {
+    path: "/LearnComponent",
+    component: LearnComponent,
+    Name: "LearnComponent",
+  },
+  { path: "/Page1/:id", component: Page1, Name: "Page1" },
 ];
 
 // 3. 创建 router 实例，然后传 `routes` 配置
