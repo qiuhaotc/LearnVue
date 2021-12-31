@@ -1,11 +1,19 @@
 <template>
   <div>
+    {{ clicktime }}
+    <button-counter
+      :value="clicktime"
+      v-on:buttonclick="buttonclick(1)"
+    ></button-counter>
     <h5>通过 Prop 向子组件传递数据</h5>
     <blog-post
       v-for="post in posts"
       v-bind:key="post.id"
       v-bind:title="post.title"
     ></blog-post>
+    <DemoComponent>
+      <p>Slot: Content from parent</p>
+    </DemoComponent>
   </div>
 </template>
 
@@ -17,15 +25,32 @@ Vue.component("blog-post", {
   template: "<h3>{{ title }}</h3>",
 });
 
+Vue.component("DemoComponent", {
+  template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `,
+});
+
 export default {
   data: function () {
     return {
+      datas: "123",
+      clicktime: 0,
       posts: [
         { id: 1, title: "My journey with Vue" },
         { id: 2, title: "Blogging with Vue" },
         { id: 3, title: "Why Vue is so fun" },
       ],
     };
+  },
+  methods: {
+    buttonclick(val) {
+      this.clicktime += val;
+      console.log("click");
+    },
   },
 };
 </script>
