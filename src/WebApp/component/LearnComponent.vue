@@ -12,13 +12,19 @@
       v-bind:title="post.title"
     ></blog-post>
     <DemoComponent>
-      <p>Slot: Content from parent</p>
+      <p>Slot: Content from parent, 作用域当前组件: {{ title }}</p>
     </DemoComponent>
+    <h5>
+      使用v-model绑定到子控件: {{ inputInfo }} <br />
+      v-bind:title.sync: {{ title }}
+    </h5>
+    <SubComponent v-model="inputInfo" v-bind:title.sync="title"></SubComponent>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
+import SubComponent from "./SubComponent.vue";
 
 Vue.component("blog-post", {
   props: ["title"],
@@ -38,6 +44,11 @@ export default {
   data: function () {
     return {
       datas: "123",
+      inputInfo: {
+        A: "123",
+        B: "456",
+      },
+      title: "测试sync",
       clicktime: 0,
       posts: [
         { id: 1, title: "My journey with Vue" },
@@ -52,5 +63,6 @@ export default {
       console.log("click");
     },
   },
+  components: { SubComponent },
 };
 </script>
